@@ -46,4 +46,11 @@ class ReviewController extends Controller
         $review = Review::find($movie->review->id);
         $review->delete();
     }
+
+    public function getAverageRating(Movie $movie)
+    {
+        $rating = Review::whereMovieId($movie->id)->where('rating', '!=', '0')->avg('rating');
+
+        return round($rating);
+    }
 }

@@ -27,6 +27,7 @@ Route::get('movies/filter/review', [MovieController::class, 'filterByReview'])->
 
 Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::get('reviews/{movie}', [ReviewController::class, 'show'])->name('reviews.show')->middleware('auth:sanctum');
+Route::get('reviews/{movie}/average-rating', [ReviewController::class, 'getAverageRating'])->name('reviews.average.rating');
 Route::post('reviews/{movie}/rating', [ReviewController::class, 'storeRating'])->name('review.store.rating')->middleware('auth:sanctum');
 Route::post('reviews/{movie}/description', [ReviewController::class, 'storeDescription'])->name('review.store.description')->middleware('auth:sanctum');
 Route::delete('reviews/{movie}', [ReviewController::class, 'destroy'])->name('review.destroy')->middleware('auth:sanctum');
