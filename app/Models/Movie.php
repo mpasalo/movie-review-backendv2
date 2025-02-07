@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 
 class Movie extends Model
@@ -25,9 +25,9 @@ class Movie extends Model
         'director'         => 'string'
     ];
 
-    public function review(): HasOne
+    public function reviews(): HasMany
     {
-        return $this->hasOne(Review::class);
+        return $this->hasMany(Review::class);
     }
 
     public function hasReview(): bool
