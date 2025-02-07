@@ -23,7 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('movies', [MovieController::class, 'index'])->name('movies.index');
-Route::get('movies/filter/review', [MovieController::class, 'filterByReview'])->name('movies.filter.review')->middleware('auth:sanctum');
 
 Route::get('reviews', [ReviewController::class, 'index'])->name('reviews.index');
 Route::get('reviews/{movie}', [ReviewController::class, 'show'])->name('reviews.show')->middleware('auth:sanctum');
