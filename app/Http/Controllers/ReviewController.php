@@ -12,10 +12,10 @@ class ReviewController extends Controller
 {
     public function show(Movie $movie)
     {
-        $movie = $movie->load('review');
+        $review = Review::whereMovieId($movie->id)->whereUserId(Auth::user()->id)->first();
         
-        if ($movie->hasReview()) {
-            return Review::whereMovieId($movie->id)->whereUserId(Auth::user()->id)->first();
+        if ($review) {
+            return $review;
         } else {
             return '';
         }
