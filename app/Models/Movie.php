@@ -29,9 +29,4 @@ class Movie extends Model
     {
         return $this->hasMany(Review::class);
     }
-
-    public function hasReview(): bool
-    {
-        return $this->review()->whereUserId(Auth::user()->id)->exists();
-    }
 }
